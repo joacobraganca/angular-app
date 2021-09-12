@@ -16,7 +16,7 @@
            </mat-form-field>
            <button type="submit" class="login-element-width button" [disabled]="form.invalid" mat-raised-button color="primary">Iniciar sesión</button> 
         </form>
-        <button routerLink="/signup" class="button" mat-button color="primary">Registrarme</button>
+        <button *ngIf="!loading" routerLink="/signup" class="button" mat-button color="primary">Registrarme</button>
        
     </div>
    
