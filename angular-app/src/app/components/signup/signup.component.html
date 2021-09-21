@@ -2,7 +2,7 @@
     <div class="login">
         <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
-        <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="doLogin()">
+        <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="doSignup()">
             <img class="img" src="./assets/img/travel.png" alt="login image">
             <h1>Aterrizar</h1>
             <h3>Registro</h3>
