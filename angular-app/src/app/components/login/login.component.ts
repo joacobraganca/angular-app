@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  errMsg: any;
   loading = false;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router) {
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router,
+    private userService: UserService
+  ) {
+
     this.form = this.fb.group({
       user: ["", Validators.required],
       password: ["", Validators.required],
@@ -24,29 +29,33 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    console.log(this.form)
-    const user = this.form.value.user;
-    const password = this.form.value.password;
+    const { user, password } = this.form.value;
+    // const user = this.form.value.user;
+    /// const password = this.form.value.password;
 
-    if (user == "admin" && password == "admin") {
-      // Redirect 
-      this.fakeLoading();
-    } else {
-      // Error
-      this.error();
-      this.form.reset;
-    }
+    this.userService.login(user, password).subscribe(
+      user => {
+        this.userService.setUser(user);
+        this.redirect();
+
+      },
+      ({ error: { mensaje } }) => {
+        this.error(mensaje);
+        //  this.errMsg = mensaje;
+      }
+    );
+
   }
 
-  error() {
-    this._snackBar.open("Usuario y/o contraseña incorrectos.", "", {
+  error(err: any) {
+    this._snackBar.open(err, "", {
       horizontalPosition: "center",
       verticalPosition: "bottom",
       duration: 5000
     })
   }
 
-  fakeLoading() {
+  redirect() {
     this.loading = true;
     setTimeout(() => {
       this.router.navigate(['main'])
