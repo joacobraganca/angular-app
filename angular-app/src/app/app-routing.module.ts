@@ -11,8 +11,10 @@ const routes: Routes = [
   {
     path: "signup", component: SignupComponent
   },
-  { path: "main", loadChildren: () => import('./components/main/main.module').then(x => x.MainModule) },
+  { path: "dashboard", loadChildren: () => import('./components/dashboard/dashboard.module').then(x => x.DashboardModule) },
   { path: "**", redirectTo: "login", pathMatch: "full" }
+//  { path: "main", loadChildren: () => import('./components/main/main.module').then(x => x.MainModule) },
+
 ];
 
 @NgModule({

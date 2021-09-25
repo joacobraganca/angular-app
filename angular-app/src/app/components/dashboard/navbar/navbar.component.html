@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>Aterrizar</span>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <span>Paquetes</span>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/dashboard/venta-paquete">
+      <mat-icon>attach_money</mat-icon>
+      <span>Vender</span>
+    </button>
+    <button mat-menu-item routerLink="/dashboard/lista-paquete">
+      <mat-icon>list</mat-icon>
+      <span>Listar</span>
+    </button>
+  </mat-menu>
+
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="primary" routerLink="/login">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

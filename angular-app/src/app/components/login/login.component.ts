@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
   redirect() {
     this.loading = true;
     setTimeout(() => {
-      this.router.navigate(['main'])
-    }, 3000)
+      this.router.navigate(['dashboard'])
+    }, 1000)
   }
 
 }
