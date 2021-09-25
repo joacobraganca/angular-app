@@ -2,14 +2,39 @@
   <span>Aterrizar</span>
 
   <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="menu"
-    aria-label="Example icon-button with a menu"
-  >
-    <span>Paquetes</span>
+
+  <button mat-button>
+    <span>Ventas</span>
   </button>
-  <mat-menu #menu="matMenu">
+
+  <button mat-button [matMenuTriggerFor]="destinos">
+    <span>Destinos </span>
+    <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #destinos="matMenu">
+    <button mat-menu-item routerLink="">
+      <mat-icon>star</mat-icon>
+      <span>TOP</span>
+    </button>
+    <button mat-menu-item routerLink="">
+      <mat-icon>local_offer</mat-icon>
+      <span>Promo</span>
+    </button>
+    <button mat-menu-item routerLink="">
+      <mat-icon>paid</mat-icon>
+      <span>Precios</span>
+    </button>
+    <button mat-menu-item routerLink="">
+      <mat-icon>groups</mat-icon>
+      <span>Personas</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="paquetes">
+    <span>Paquetes </span>
+    <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #paquetes="matMenu">
     <button mat-menu-item routerLink="/dashboard/venta-paquete">
       <mat-icon>attach_money</mat-icon>
       <span>Vender</span>
