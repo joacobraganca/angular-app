@@ -17,6 +17,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatIconModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -49,7 +51,8 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatIconModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule
   ],
 })
 export class SharedModule { }
