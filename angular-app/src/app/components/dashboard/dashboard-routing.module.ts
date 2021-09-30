@@ -9,7 +9,7 @@ const routes: Routes = [
 {path:'', component:DashboardComponent, children:[
   {path:'', component:InicioComponent},
   {path:'venta-paquete', component:VentaPaqueteComponent},
-  {path:'lista-paquete', component:ListaPaqueteComponent},
+ // {path:'lista-paquete', component:ListaPaqueteComponent},
 ]}
   
 ];

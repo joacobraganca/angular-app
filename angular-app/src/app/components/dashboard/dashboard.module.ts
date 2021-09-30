@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { VentaPaqueteComponent } from './venta-paquete/venta-paquete.component';
 import { ListaPaqueteComponent } from './lista-paquete/lista-paquete.component';
+import { TopDestinoComponent } from './top-destino/top-destino.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ListaPaqueteComponent } from './lista-paquete/lista-paquete.component';
     InicioComponent,
     NavbarComponent,
     VentaPaqueteComponent,
-    ListaPaqueteComponent
+    ListaPaqueteComponent,
+    TopDestinoComponent
   ],
   imports: [
     CommonModule,
