@@ -15,6 +15,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -43,7 +47,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatTableModule
   ],
 })
 export class SharedModule { }
