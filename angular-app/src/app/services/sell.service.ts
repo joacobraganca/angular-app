@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SellService {
   user: any;
@@ -21,12 +21,26 @@ export class SellService {
     return this.user?.apiKey;
   }
 
-  doSell(idVendedor: number, nombreCliente: string, idPaquete:number, cantidadMayores:number, cantidadMenores:number) {
-    const headers = { 'Content-type': 'application/json', 'apikey':this.getApiKey() };
-    const body = JSON.stringify({ idVendedor, nombreCliente, idPaquete, cantidadMayores, cantidadMenores });
+  doSell(
+    idVendedor: number,
+    nombreCliente: string,
+    idPaquete: number,
+    cantidadMayores: number,
+    cantidadMenores: number
+  ) {
+    const headers = {
+      'Content-type': 'application/json',
+      apikey: this.getApiKey(),
+    };
+    const body = JSON.stringify({
+      idVendedor,
+      nombreCliente,
+      idPaquete,
+      cantidadMayores,
+      cantidadMenores,
+    });
     return this.http.post('https://destinos.develotion.com/ventas.php', body, {
-      headers
+      headers,
     });
   }
-
 }

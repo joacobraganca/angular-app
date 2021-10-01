@@ -6,16 +6,19 @@ import { ListaPaqueteComponent } from './lista-paquete/lista-paquete.component';
 import { VentaPaqueteComponent } from './venta-paquete/venta-paquete.component';
 
 const routes: Routes = [
-{path:'', component:DashboardComponent, children:[
-  {path:'', component:InicioComponent},
-  {path:'venta-paquete', component:VentaPaqueteComponent},
- // {path:'lista-paquete', component:ListaPaqueteComponent},
-]}
-  
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: '', component: InicioComponent },
+      { path: 'venta-paquete', component: VentaPaqueteComponent },
+      { path: 'inicio', component: InicioComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

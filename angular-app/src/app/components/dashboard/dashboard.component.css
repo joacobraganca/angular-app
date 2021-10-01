@@ -1,0 +1,21 @@
+.dashboard-container{
+    padding: 2%;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 15px 0 0 0;
+}
+.dashboard-table-1{
+    width: 100%;
+}
+
+.dashboard-table-2{
+    align-self: auto;
+    margin: 0 auto;
+    width: 33%;
+}
