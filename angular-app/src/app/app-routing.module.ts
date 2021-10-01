@@ -4,21 +4,28 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: "login", component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: "signup", component: SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
-  { path: "dashboard", loadChildren: () => import('./components/dashboard/dashboard.module').then(x => x.DashboardModule) },
-  { path: "**", redirectTo: "login", pathMatch: "full" }
-//  { path: "main", loadChildren: () => import('./components/main/main.module').then(x => x.MainModule) },
-
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./components/dashboard/dashboard.module').then(
+        (x) => x.DashboardModule
+      ),
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  //  { path: "main", loadChildren: () => import('./components/main/main.module').then(x => x.MainModule) },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

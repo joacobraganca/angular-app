@@ -4,68 +4,67 @@ import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
 
 export interface ListElements {
-  nombre_cliente:string;
-  paquete:string;
-  cantidad_mayores:number;
-  cantidad_menores:number;
-  precio_final:number;
+  nombre_cliente: string;
+  paquete: string;
+  cantidad_mayores: number;
+  cantidad_menores: number;
+  precio_final: number;
 }
 
 @Component({
   selector: 'app-lista-paquete',
   templateUrl: './lista-paquete.component.html',
-  styleUrls: ['./lista-paquete.component.css']
+  styleUrls: ['./lista-paquete.component.css'],
 })
 export class ListaPaqueteComponent implements OnInit {
-  sells:Sell[] = [];
-  packages:Package[] = [];
-  displaySell:Array<ListElements>=[];
+  sells: Sell[] = [];
+  packages: Package[] = [];
+  displaySell: Array<ListElements> = [];
 
-  displayedColumns: string[] = ['cliente', 'paquete', 'cantidadAdultos', 'cantidadNinos', 'precioFinal'];
+  displayedColumns: string[] = [
+    'cliente',
+    'paquete',
+    'cantidadAdultos',
+    'cantidadNinos',
+    'precioFinal',
+  ];
 
-  constructor( private userService: UserService) {
-    
-   }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadSells();
   }
 
-  loadSells(){
-    this.userService.getSells().subscribe(
-      response => {
-        this.sells=response.ventas;
-         this.loadPackages();
-
-       }
-    )
+  loadSells() {
+    this.userService.getSells().subscribe((response) => {
+      this.sells = response.ventas;
+      this.loadPackages();
+    });
   }
-  loadPackages(){
-    this.userService.getPackages().subscribe(
-      response => {
-        this.packages= response.destinos;    
-        this.displaySell=this.generateList();  
-      }
-    )
+  loadPackages() {
+    this.userService.getPackages().subscribe((response) => {
+      this.packages = response.destinos;
+      this.displaySell = this.generateList();
+    });
   }
 
-  generateList():Array<ListElements>{
-    const list : Array<ListElements>=[];
-    this.sells.forEach(sell=>{
-      const destino = this.packages.filter(p=>p.id===sell.id_paquete)[0];
-      const precioFinal = (sell.cantidad_mayores*destino.precio_mayor) + (sell.cantidad_menores*destino.precio_menor);
-      const item : ListElements = {
-        nombre_cliente:sell.nombre_cliente,
-        paquete:destino.nombre,
-        cantidad_mayores:sell.cantidad_mayores,
-        cantidad_menores:sell.cantidad_menores,
-        precio_final:precioFinal
+  generateList(): Array<ListElements> {
+    const list: Array<ListElements> = [];
+    this.sells.forEach((sell) => {
+      const destino = this.packages.filter((p) => p.id === sell.id_paquete)[0];
+      const precioFinal =
+        sell.cantidad_mayores * destino.precio_mayor +
+        sell.cantidad_menores * destino.precio_menor;
+      const item: ListElements = {
+        nombre_cliente: sell.nombre_cliente,
+        paquete: destino.nombre,
+        cantidad_mayores: sell.cantidad_mayores,
+        cantidad_menores: sell.cantidad_menores,
+        precio_final: precioFinal,
       };
-     list.push(item);
-      });
+      list.push(item);
+    });
 
     return list;
   }
-
-
 }

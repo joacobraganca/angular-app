@@ -4,39 +4,37 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-
   form: FormGroup;
   loading = false;
   errMsg: any;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router,
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private router: Router,
     private userService: UserService
   ) {
     this.form = this.fb.group({
-      user: ["", Validators.required],
-      password: ["", Validators.required],
-    })
+      user: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   doSignup() {
     const { user, password } = this.form.value;
 
     this.userService.signup(user, password).subscribe(
-      user => {
+      (user) => {
         this.userService.setUser(user);
         this.redirect();
-
       },
       ({ error: { mensaje } }) => {
         this.error(mensaje);
@@ -46,18 +44,17 @@ export class SignupComponent implements OnInit {
   }
 
   error(err: any) {
-    this._snackBar.open(err, "", {
-      horizontalPosition: "center",
-      verticalPosition: "bottom",
-      duration: 5000
-    })
+    this._snackBar.open(err, '', {
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      duration: 5000,
+    });
   }
 
   redirect() {
     this.loading = true;
     setTimeout(() => {
-      this.router.navigate(['dashboard'])
-    }, 1000)
+      this.router.navigate(['dashboard']);
+    }, 1000);
   }
-
 }

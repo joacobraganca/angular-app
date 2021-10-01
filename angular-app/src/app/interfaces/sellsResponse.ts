@@ -1,6 +1,6 @@
-import { Sell } from "./sell";
+import { Sell } from './sell';
 
-export interface SellsResponse{
-    codigo:number;
-    ventas:Sell[];
+export interface SellsResponse {
+  codigo: number;
+  ventas: Sell[];
 }

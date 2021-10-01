@@ -7,26 +7,26 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   form: FormGroup;
   errMsg: any;
   loading = false;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router,
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private router: Router,
     private userService: UserService
   ) {
-
     this.form = this.fb.group({
-      user: ["", Validators.required],
-      password: ["", Validators.required],
-    })
+      user: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   doLogin() {
     const { user, password } = this.form.value;
@@ -34,32 +34,29 @@ export class LoginComponent implements OnInit {
     /// const password = this.form.value.password;
 
     this.userService.login(user, password).subscribe(
-      user => {
+      (user) => {
         this.userService.setUser(user);
         this.redirect();
-
       },
       ({ error: { mensaje } }) => {
         this.error(mensaje);
         //  this.errMsg = mensaje;
       }
     );
-
   }
 
   error(err: any) {
-    this._snackBar.open(err, "", {
-      horizontalPosition: "center",
-      verticalPosition: "bottom",
-      duration: 5000
-    })
+    this._snackBar.open(err, '', {
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      duration: 5000,
+    });
   }
 
   redirect() {
     this.loading = true;
     setTimeout(() => {
-      this.router.navigate(['dashboard'])
-    }, 1000)
+      this.router.navigate(['dashboard']);
+    }, 1000);
   }
-
 }

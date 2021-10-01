@@ -10,7 +10,7 @@ import { VentaPaqueteComponent } from './venta-paquete/venta-paquete.component';
 import { ListaPaqueteComponent } from './lista-paquete/lista-paquete.component';
 import { TopDestinoComponent } from './top-destino/top-destino.component';
 import { PromoDestinoComponent } from './promo-destino/promo-destino.component';
-
+import { PersonasDestinoComponent } from './personas-destino/personas-destino.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +20,9 @@ import { PromoDestinoComponent } from './promo-destino/promo-destino.component';
     VentaPaqueteComponent,
     ListaPaqueteComponent,
     TopDestinoComponent,
-    PromoDestinoComponent
+    PromoDestinoComponent,
+    PersonasDestinoComponent,
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })
-export class DashboardModule { }
+export class DashboardModule {}

@@ -1,6 +1,6 @@
-import { Package } from "./package";
+import { Package } from './package';
 
-export interface PackagesResponse{
-    codigo:number;
-    destinos:Package[];
+export interface PackagesResponse {
+  codigo: number;
+  destinos: Package[];
 }
