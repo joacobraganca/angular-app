@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -35,6 +36,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSelectModule,
     MatTableModule,
     MatGridListModule,
+    MatCardModule,
   ],
   exports: [
     CommonModule,
@@ -51,6 +53,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSelectModule,
     MatTableModule,
     MatGridListModule,
+    MatCardModule,
   ],
 })
 export class SharedModule {}

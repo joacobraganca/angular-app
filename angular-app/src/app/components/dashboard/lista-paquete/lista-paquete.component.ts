@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
@@ -16,9 +22,9 @@ export interface ListElements {
   templateUrl: './lista-paquete.component.html',
   styleUrls: ['./lista-paquete.component.css'],
 })
-export class ListaPaqueteComponent implements OnInit {
-  sells: Sell[] = [];
-  packages: Package[] = [];
+export class ListaPaqueteComponent implements OnChanges {
+  @Input() sells: Sell[] = [];
+  @Input() packages: Package[] = [];
   displaySell: Array<ListElements> = [];
 
   displayedColumns: string[] = [
@@ -31,21 +37,10 @@ export class ListaPaqueteComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.loadSells();
-  }
-
-  loadSells() {
-    this.userService.getSells().subscribe((response) => {
-      this.sells = response.ventas;
-      this.loadPackages();
-    });
-  }
-  loadPackages() {
-    this.userService.getPackages().subscribe((response) => {
-      this.packages = response.destinos;
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.sells.length > 0 && this.packages.length > 0) {
       this.displaySell = this.generateList();
-    });
+    }
   }
 
   generateList(): Array<ListElements> {

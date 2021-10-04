@@ -11,6 +11,7 @@ import { ListaPaqueteComponent } from './lista-paquete/lista-paquete.component';
 import { TopDestinoComponent } from './top-destino/top-destino.component';
 import { PromoDestinoComponent } from './promo-destino/promo-destino.component';
 import { PersonasDestinoComponent } from './personas-destino/personas-destino.component';
+import { CantidadVentasComponent } from './cantidad-ventas/cantidad-ventas.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PersonasDestinoComponent } from './personas-destino/personas-destino.co
     TopDestinoComponent,
     PromoDestinoComponent,
     PersonasDestinoComponent,
+    CantidadVentasComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })

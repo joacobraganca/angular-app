@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  Input,
+} from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
@@ -8,39 +14,37 @@ import { UserService } from '../../../services/user.service';
   templateUrl: './promo-destino.component.html',
   styleUrls: ['./promo-destino.component.css'],
 })
-export class PromoDestinoComponent implements OnInit {
-  sells: Sell[] = [];
-  packages: Package[] = [];
+export class PromoDestinoComponent implements OnChanges {
+  @Input() sells: Sell[] = [];
+  @Input() packages: Package[] = [];
   displaySell: Array<string> = [];
 
   displayedColumns: string[] = ['destino'];
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.loadSells();
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.sells.length > 0 && this.packages.length > 0) {
+      this.loadSells();
+    }
   }
-
   loadSells() {
-    this.userService.getSells().subscribe((response) => {
-      // Genero array con todos los id de los destinos
-      let ids: Array<number> = [];
-      response.ventas.forEach((venta) => {
-        ids.push(venta.id_paquete);
-      });
-
-      // Genero array de cada id de destino compradp
-      const unique = ids.filter((v, i, a) => a.indexOf(v) === i);
-
-      this.loadPackages(unique);
+    let ids: Array<number> = [];
+    this.sells.forEach((venta) => {
+      ids.push(venta.id_paquete);
     });
+
+    // Genero array de cada id de destino compradp
+    const unique = ids.filter((v, i, a) => a.indexOf(v) === i);
+
+    this.displaySell = this.generateList(unique);
   }
-  loadPackages(destinations: Array<any>) {
-    this.userService.getPackages().subscribe((response) => {
-      this.packages = response.destinos;
-      this.displaySell = this.generateList(destinations);
-    });
-  }
+  // loadPackages(destinations: Array<any>) {
+  //   this.userService.getPackages().subscribe((response) => {
+  //     this.packages = response.destinos;
+  //     this.displaySell = this.generateList(destinations);
+  //   });
+  // }
 
   generateList(destinations: Array<any>): Array<string> {
     const idsNotFound: Array<string> = [];
