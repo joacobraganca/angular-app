@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  Input,
+} from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
@@ -16,51 +22,51 @@ export interface ListElements {
   templateUrl: './top-destino.component.html',
   styleUrls: ['./top-destino.component.css'],
 })
-export class TopDestinoComponent implements OnInit {
-  sells: Sell[] = [];
-  packages: Package[] = [];
+export class TopDestinoComponent implements OnChanges {
+  @Input() sells: Sell[] = [];
+  @Input() packages: Package[] = [];
   displaySell: Array<any> = [];
 
   displayedColumns: string[] = ['destino', 'ventas'];
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.loadSells();
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.sells.length > 0 && this.packages.length > 0) {
+      this.loadSells();
+    }
   }
 
   loadSells() {
-    this.userService.getSells().subscribe((response) => {
-      // Genero array con todos los id de los destinos
-      let ids: Array<number> = [];
-      response.ventas.forEach((venta) => {
-        ids.push(venta.id_paquete);
-      });
-
-      // Genero array de cada destino posible
-      const unique = ids.filter((v, i, a) => a.indexOf(v) === i);
-
-      let topDestinationsIds: Array<any> = [];
-      // Para cada destino posible
-      unique.forEach((idUnique) => {
-        let count = 0;
-        // Recorro la lista de los destinos y cuento cuantas veces figura
-        ids.forEach((v) => v === idUnique && count++);
-
-        if (count >= 3) {
-          topDestinationsIds.push({ id: idUnique, count });
-        }
-      });
-
-      this.loadPackages(topDestinationsIds);
+    // Genero array con todos los id de los destinos
+    let ids: Array<number> = [];
+    this.sells.forEach((sell) => {
+      ids.push(sell.id_paquete);
     });
-  }
-  loadPackages(destinations: Array<any>) {
-    this.userService.getPackages().subscribe((response) => {
-      this.packages = response.destinos;
-      this.displaySell = this.generateList(destinations);
+
+    // Genero array de cada destino posible
+    const unique = ids.filter((v, i, a) => a.indexOf(v) === i);
+
+    let topDestinationsIds: Array<any> = [];
+    // Para cada destino posible
+    unique.forEach((idUnique) => {
+      let count = 0;
+      // Recorro la lista de los destinos y cuento cuantas veces figura
+      ids.forEach((v) => v === idUnique && count++);
+
+      if (count >= 3) {
+        topDestinationsIds.push({ id: idUnique, count });
+      }
     });
+
+    this.displaySell = this.generateList(topDestinationsIds);
   }
+  // loadPackages(destinations: Array<any>) {
+  //   this.userService.getPackages().subscribe((response) => {
+  //     this.packages = response.destinos;
+  //     this.displaySell = this.generateList(destinations);
+  //   });
+  // }
 
   generateList(destinations: Array<any>): Array<any> {
     const list: Array<any> = [];

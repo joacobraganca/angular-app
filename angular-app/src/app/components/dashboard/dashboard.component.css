@@ -8,10 +8,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin: 15px 0 0 0;
+    margin: 0 0 50px 0;
 }
-.dashboard-table-1{
-    width: 100%;
+.dashboard-table-package-list{
+    width: 68%;
+}
+
+.dashboard-table-package-count{
+    width: 28%;
 }
 
 .dashboard-table-2{
