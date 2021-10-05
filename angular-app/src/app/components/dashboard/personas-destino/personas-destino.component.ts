@@ -1,13 +1,6 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
-import { UserService } from '../../../services/user.service';
 
 export interface PersonasDestino {
   id_paquete: number;
@@ -29,7 +22,7 @@ export class PersonasDestinoComponent implements OnChanges {
 
   displayedColumns: string[] = ['paquete', 'personas'];
 
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.sells.length > 0 && this.packages.length > 0) {

@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
     const { user, password } = this.form.value;
-    // const user = this.form.value.user;
-    /// const password = this.form.value.password;
 
     this.userService.login(user, password).subscribe(
       (user) => {
@@ -40,7 +38,6 @@ export class LoginComponent implements OnInit {
       },
       ({ error: { mensaje } }) => {
         this.error(mensaje);
-        //  this.errMsg = mensaje;
       }
     );
   }
@@ -55,8 +52,6 @@ export class LoginComponent implements OnInit {
 
   redirect() {
     this.loading = true;
-    setTimeout(() => {
-      this.router.navigate(['dashboard']);
-    }, 1000);
+    this.router.navigate(['dashboard']);
   }
 }

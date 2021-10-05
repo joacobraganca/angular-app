@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 
 import { Sell } from 'src/app/interfaces/sell';
 @Component({

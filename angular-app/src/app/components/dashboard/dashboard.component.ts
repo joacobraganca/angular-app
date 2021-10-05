@@ -18,9 +18,6 @@ export class DashboardComponent implements OnInit {
   sells: Sell[] = [];
   packages: Package[] = [];
 
-  // @ViewChild(ListaPaqueteComponent) listaPaquete!: ListaPaqueteComponent;
-  // @ViewChild(TopDestinoComponent) topDestino!: TopDestinoComponent;
-
   ngOnInit() {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.loadSells();

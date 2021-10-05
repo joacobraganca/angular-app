@@ -8,9 +8,8 @@ describe('GraficaPreciosDestinoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraficaPreciosDestinoComponent ]
-    })
-    .compileComponents();
+      declarations: [GraficaPreciosDestinoComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

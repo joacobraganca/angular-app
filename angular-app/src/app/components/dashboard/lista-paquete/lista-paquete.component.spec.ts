@@ -8,9 +8,8 @@ describe('ListaPaqueteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaPaqueteComponent ]
-    })
-    .compileComponents();
+      declarations: [ListaPaqueteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,13 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
-import { UserService } from '../../../services/user.service';
 
 export interface ListElements {
   nombre_cliente: string;
@@ -35,7 +28,7 @@ export class ListaPaqueteComponent implements OnChanges {
     'precioFinal',
   ];
 
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.sells.length > 0 && this.packages.length > 0) {
