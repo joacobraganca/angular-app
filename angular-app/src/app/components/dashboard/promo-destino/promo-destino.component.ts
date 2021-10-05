@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
@@ -34,17 +28,10 @@ export class PromoDestinoComponent implements OnChanges {
       ids.push(venta.id_paquete);
     });
 
-    // Genero array de cada id de destino compradp
     const unique = ids.filter((v, i, a) => a.indexOf(v) === i);
 
     this.displaySell = this.generateList(unique);
   }
-  // loadPackages(destinations: Array<any>) {
-  //   this.userService.getPackages().subscribe((response) => {
-  //     this.packages = response.destinos;
-  //     this.displaySell = this.generateList(destinations);
-  //   });
-  // }
 
   generateList(destinations: Array<any>): Array<string> {
     const idsNotFound: Array<string> = [];

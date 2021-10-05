@@ -8,9 +8,8 @@ describe('VentaPaqueteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VentaPaqueteComponent ]
-    })
-    .compileComponents();
+      declarations: [VentaPaqueteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

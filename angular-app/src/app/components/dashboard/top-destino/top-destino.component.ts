@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { Sell } from 'src/app/interfaces/sell';
 import { UserService } from '../../../services/user.service';
@@ -61,12 +55,6 @@ export class TopDestinoComponent implements OnChanges {
 
     this.displaySell = this.generateList(topDestinationsIds);
   }
-  // loadPackages(destinations: Array<any>) {
-  //   this.userService.getPackages().subscribe((response) => {
-  //     this.packages = response.destinos;
-  //     this.displaySell = this.generateList(destinations);
-  //   });
-  // }
 
   generateList(destinations: Array<any>): Array<any> {
     const list: Array<any> = [];

@@ -38,7 +38,6 @@ export class SignupComponent implements OnInit {
       },
       ({ error: { mensaje } }) => {
         this.error(mensaje);
-        //  this.errMsg = mensaje;
       }
     );
   }
@@ -53,8 +52,6 @@ export class SignupComponent implements OnInit {
 
   redirect() {
     this.loading = true;
-    setTimeout(() => {
-      this.router.navigate(['dashboard']);
-    }, 1000);
+    this.router.navigate(['dashboard']);
   }
 }

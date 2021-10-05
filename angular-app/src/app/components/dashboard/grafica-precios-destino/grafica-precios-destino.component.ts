@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   OnChanges,
   SimpleChanges,
   Input,

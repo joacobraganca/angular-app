@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { Package } from 'src/app/interfaces/package';
 import { UserService } from '../../../services/user.service';
 
@@ -23,7 +17,6 @@ export class VentaPaqueteComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
-    private router: Router,
     private userService: UserService
   ) {
     this.form = this.fb.group({
@@ -73,5 +66,4 @@ export class VentaPaqueteComponent implements OnInit {
       duration: 5000,
     });
   }
-  redirect() {}
 }
