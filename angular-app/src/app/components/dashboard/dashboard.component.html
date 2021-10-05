@@ -16,25 +16,34 @@
   </div>
 
   <div class="row">
-    <div class="dashboard-table-2">
-      <h4>Destinos TOP</h4>
+    <div class="dashboard-table-3">
       <app-top-destino [sells]="sells" [packages]="packages"></app-top-destino>
     </div>
-
-    <div class="dashboard-table-2">
-      <h4>Personas por destino</h4>
+    <div class="dashboard-table-3">
+      <app-promo-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-promo-destino>
+    </div>
+    <div class="dashboard-table-3">
       <app-personas-destino
         [sells]="sells"
         [packages]="packages"
       ></app-personas-destino>
     </div>
+  </div>
+  <div class="row">
     <div class="dashboard-table-2">
-      <h4>Destinos Promo</h4>
-
-      <app-promo-destino
+      <app-grafica-personas-destino
         [sells]="sells"
         [packages]="packages"
-      ></app-promo-destino>
+      ></app-grafica-personas-destino>
+    </div>
+    <div class="dashboard-table-2">
+      <app-grafica-personas-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-grafica-personas-destino>
     </div>
   </div>
 </div>

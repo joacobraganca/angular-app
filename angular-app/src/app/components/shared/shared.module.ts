@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [],
@@ -37,6 +38,7 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatGridListModule,
     MatCardModule,
+    NgApexchartsModule,
   ],
   exports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatGridListModule,
     MatCardModule,
+    NgApexchartsModule,
   ],
 })
 export class SharedModule {}

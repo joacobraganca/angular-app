@@ -12,6 +12,8 @@ import { TopDestinoComponent } from './top-destino/top-destino.component';
 import { PromoDestinoComponent } from './promo-destino/promo-destino.component';
 import { PersonasDestinoComponent } from './personas-destino/personas-destino.component';
 import { CantidadVentasComponent } from './cantidad-ventas/cantidad-ventas.component';
+import { GraficaPreciosDestinoComponent } from './grafica-precios-destino/grafica-precios-destino.component';
+import { GraficaPersonasDestinoComponent } from './grafica-personas-destino/grafica-personas-destino.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CantidadVentasComponent } from './cantidad-ventas/cantidad-ventas.compo
     PromoDestinoComponent,
     PersonasDestinoComponent,
     CantidadVentasComponent,
+    GraficaPreciosDestinoComponent,
+    GraficaPersonasDestinoComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })
