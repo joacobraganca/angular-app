@@ -20,6 +20,9 @@
 
 .dashboard-table-2{
     align-self: auto;
-    margin: 0 auto;
-    width: 33%;
+    width: 50%;
+}
+.dashboard-table-3{
+    align-self: auto;
+    width: 33.3%;
 }
