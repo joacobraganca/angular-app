@@ -2,10 +2,10 @@
   <div class="login">
     <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
-    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="doLogin()">
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="doSignup()">
       <img class="img" src="./assets/img/travel.png" alt="login image" />
       <h1>Aterrizar</h1>
-      <h3>Iniciar sesión</h3>
+      <h3>Registro</h3>
       <mat-form-field class="login-element-width" appearance="fill">
         <mat-label>Usuario</mat-label>
         <input matInput formControlName="user" autocomplete="off" />
@@ -19,6 +19,7 @@
           autocomplete="off"
         />
       </mat-form-field>
+      <br />
       <button
         type="submit"
         class="login-element-width button"
@@ -26,17 +27,11 @@
         mat-raised-button
         color="primary"
       >
-        Iniciar sesión
+        Registrarme
       </button>
     </form>
-    <button
-      *ngIf="!loading"
-      routerLink="/signup"
-      class="button"
-      mat-button
-      color="primary"
-    >
-      Registrarme
+    <button routerLink="/login" class="button" mat-button color="primary">
+      volver a inicio de sesión
     </button>
   </div>
 </div>

@@ -5,14 +5,14 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   form: FormGroup;
-  errMsg: any;
   loading = false;
+  errMsg: any;
 
   constructor(
     private fb: FormBuilder,
@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  doLogin() {
+  doSignup() {
     const { user, password } = this.form.value;
 
-    this.userService.login(user, password).subscribe(
+    this.userService.signup(user, password).subscribe(
       (user) => {
         this.userService.setUser(user);
         this.redirect();

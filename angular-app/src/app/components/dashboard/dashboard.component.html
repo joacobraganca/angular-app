@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<div class="dashboard-container">
+  <div class="row">
+    <div class="dashboard-table-package-list">
+      <h4>Lista paquetes vendidos</h4>
+      <app-lista-paquete
+        [sells]="sells"
+        [packages]="packages"
+      ></app-lista-paquete>
+    </div>
+    <div class="dashboard-table-package-count">
+      <h4>Cantidad de paquetes vendidos</h4>
+      <app-cantidad-ventas [sells]="sells"></app-cantidad-ventas>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="dashboard-table-3">
+      <app-top-destino [sells]="sells" [packages]="packages"></app-top-destino>
+    </div>
+    <div class="dashboard-table-3">
+      <app-promo-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-promo-destino>
+    </div>
+    <div class="dashboard-table-3">
+      <app-personas-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-personas-destino>
+    </div>
+  </div>
+  <div class="row">
+    <div class="dashboard-table-2">
+      <app-grafica-personas-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-grafica-personas-destino>
+    </div>
+    <div class="dashboard-table-2">
+      <app-grafica-precios-destino
+        [sells]="sells"
+        [packages]="packages"
+      ></app-grafica-precios-destino>
+    </div>
+  </div>
+</div>
