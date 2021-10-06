@@ -22,8 +22,8 @@ export class VentaPaqueteComponent implements OnInit {
     this.form = this.fb.group({
       clientName: ['', Validators.required],
       idpackage: [''],
-      quantityAdults: ['', Validators.required],
-      quantityKids: ['', Validators.required],
+      quantityAdults: [0, Validators.required],
+      quantityKids: [0, Validators.required],
     });
   }
 
@@ -41,7 +41,10 @@ export class VentaPaqueteComponent implements OnInit {
     const { clientName, idpackage, quantityAdults, quantityKids } =
       this.form.value;
     if (Number(idpackage)) {
-      if (Number(quantityAdults) && Number(quantityKids)) {
+      if (
+        (Number(quantityAdults) && Number(quantityKids)) ||
+        (quantityAdults > 0 && quantityKids >= 0)
+      ) {
         if (quantityAdults + quantityKids <= 10) {
           this.userService
             .doSell(clientName, +idpackage, quantityAdults, quantityKids)
